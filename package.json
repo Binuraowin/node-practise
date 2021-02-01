@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Binuraowin/node-practise/issues"
   },
-  "homepage": "https://github.com/Binuraowin/node-practise#readme"
+  "homepage": "https://github.com/Binuraowin/node-practise#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
