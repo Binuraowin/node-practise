@@ -3,18 +3,18 @@ const router = express.Router();
 
 router.get('/',(req,res,next)=>{
     res.status(200).json({
-        message:'products/get'
+        message:'orders/get'
     })
 })
 
 router.post('/',(req,res,next)=>{
-    res.status(201).json({
-        message:'products/post'
+    res.status(200).json({
+        message:'orders/post'
     })
 })
 
-router.get('/:productId',(req,res,next)=>{
-    const id = req.params.productId;
+router.get('/:orderId',(req,res,next)=>{
+    const id = req.params.orderId;
 
     if(id === 'special'){
         res.status(200).json({
@@ -28,15 +28,15 @@ router.get('/:productId',(req,res,next)=>{
    
 })
 
-router.patch('/:productId',(req,res,next)=>{
+router.patch('/:orderId',(req,res,next)=>{
     res.status(200).json({
-        message:'updated'
+        message:'orders/updated'
     })  
 })
 
-router.delete('/:productId',(req,res,next)=>{
+router.delete('/:orderId',(req,res,next)=>{
     res.status(200).json({
-        message:'deleted'
+        message:'orders/deleted'
     })  
 })
 
