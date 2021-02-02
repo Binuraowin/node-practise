@@ -28,15 +28,9 @@ console.log(req.body)
 router.get('/:productId',(req,res,next)=>{
     const id = req.params.productId;
 
-    if(id === 'special'){
-        res.status(200).json({
-            message:'discovered id'
-        })
-    }else{
-        res.status(404).json({
-            message:'error'
-        })
-    }
+    Product.findById(id).exec().then(doc =>{
+        res.status(200).json(doc);
+    }).catch(err => console.log(err));
    
 })
 
