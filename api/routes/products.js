@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
+const { urlencoded } = require('express');
 
 router.get('/',(req,res,next)=>{
     res.status(200).json({
@@ -7,9 +9,15 @@ router.get('/',(req,res,next)=>{
     })
 })
 
-router.post('/',(req,res,next)=>{
+router.post('/',(req,res,next)=>{  
+    const product = {
+        name: req.body.name,
+        price: req.body.price
+    };
+console.log(req.body)
     res.status(201).json({
-        message:'products/post'
+        message:'products/post',
+        product:product
     })
 })
 
