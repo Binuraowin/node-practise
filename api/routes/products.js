@@ -30,6 +30,7 @@ router.get('/:productId',(req,res,next)=>{
 
     Product.findById(id).exec().then(doc =>{
         res.status(200).json(doc);
+        console.log(doc)
     }).catch(err => console.log(err));
    
 })
