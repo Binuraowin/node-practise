@@ -17,8 +17,11 @@ router.post('/',(req,res,next)=>{
             price: req.body.price
         }
     );
-    product.save()
-console.log(req.body)
+    product.save().then(
+        result => {
+            console.log(result);
+        }
+    ).catch(err => console.log(err));
     res.status(201).json({
         message:'products/post',
         product:product
@@ -31,7 +34,13 @@ router.get('/:productId',(req,res,next)=>{
     Product.findById(id).exec().then(doc =>{
         res.status(200).json(doc);
         console.log(doc)
-    }).catch(err => console.log(err));
+    }).catch(
+        err => {
+            console.log(err);
+            res.status(500).json({error:err})
+        }
+    
+        );
    
 })
 

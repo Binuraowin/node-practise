@@ -12,18 +12,15 @@ app.use(bodyParser.json());
 app.use('/products',productRoutes);
 app.use('/orders',orderRoutes);
 
+//DB config
+const connection_url = 'mongodb://admin:admin@cluster0-shard-00-00.wevar.mongodb.net:27017,cluster0-shard-00-01.wevar.mongodb.net:27017,cluster0-shard-00-02.wevar.mongodb.net:27017/Node-shop?ssl=true&replicaSet=atlas-87hyzp-shard-0&authSource=admin&retryWrites=true&w=majority';
+mongoose.connect(connection_url,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useCreateIndex:true,
+});
 
-mongoose.connect(
 
-    STRING_URL (Your URL as String),
-  
-     { 
-      useNewUrlParser: true, 
-      useUnifiedTopology: true 
-    }
-  
-  );
-  
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header(
