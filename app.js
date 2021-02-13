@@ -20,6 +20,8 @@ mongoose.connect(connection_url,{
     useCreateIndex:true,
 });
 
+mongoose.Promise = global.Promise;
+
 
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
