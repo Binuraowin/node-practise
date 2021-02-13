@@ -72,7 +72,7 @@ router.get('/:productId',(req,res,next)=>{
                 product:doc,
                 request: {
                     type: 'GET',
-                    url: "http://localhost:3000/products/" + result._id
+                    url: "http://localhost:3000/products/" + id
                 }
             });
         }else{
@@ -103,7 +103,7 @@ router.patch('/:productId',(req,res,next)=>{
             result:result,
             request: {
                 type: 'GET',
-                url: "http://localhost:3000/products/" + result._id
+                url: "http://localhost:3000/products/" + id
             }
         });
     }).catch(err => {
