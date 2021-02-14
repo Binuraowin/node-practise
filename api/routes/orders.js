@@ -40,7 +40,17 @@ router.post('/',(req,res,next)=>{
     });
     order.save().then(
         result =>{
-            res.status(200).json(result)
+            res.status(200).json({
+                createdOrder:{
+                    _id: result._id,
+                    product: result.product,
+                    quantity: result.quantity 
+                },
+                request: {
+                    type: "POST",
+                    url: "http://localhost:3000/orders/" + result._id
+                  }
+            })
         }
     ).catch( err =>{
         res.status(500).json({
