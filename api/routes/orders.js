@@ -3,7 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Order = require('../models/order')
-const Product = require("../models/products");
+const Product = require("../models/product");
 
 
 router.get("/", (req, res, next) => {

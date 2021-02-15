@@ -29,7 +29,7 @@ const upload = multer({
   fileFilter: fileFilter
 });
 
-const Product = require("../models/products");
+const Product = require("../models/product");
 
 router.get("/", (req, res, next) => {
   Product.find()
