@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
-const productRoutes = require('./api/routes/products');
-const orderRoutes = require('./api/routes/orders');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
+const productRoutes = require('./api/routes/products');
+const orderRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/users');
 
 app.use(morgan('dev'))
 app.use(express.static(__dirname));
@@ -12,6 +14,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 app.use('/products',productRoutes);
 app.use('/orders',orderRoutes);
+app.use("/user", userRoutes);
+
 
 //DB config
 const connection_url = 'mongodb://admin:admin@cluster0-shard-00-00.wevar.mongodb.net:27017,cluster0-shard-00-01.wevar.mongodb.net:27017,cluster0-shard-00-02.wevar.mongodb.net:27017/Node-shop?ssl=true&replicaSet=atlas-87hyzp-shard-0&authSource=admin&retryWrites=true&w=majority';
